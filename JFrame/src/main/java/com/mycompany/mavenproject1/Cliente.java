@@ -3,7 +3,7 @@ package com.mycompany.mavenproject1;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ch.qos.logback.classic.PatternLayout;
+//import ch.qos.logback.classic.PatternLayout;
 
 public class Cliente {
     public String email;
@@ -16,26 +16,13 @@ public class Cliente {
         return CPF;
     }
 
-//    public void setCPF(String CPF) {
-//        this.CPF = CPF;
-//    }
-
     public String getEmail() {
         return email;
     }
 
-   /* public void setEmail(String email) {
-        this.email = email;
-    }
-         */
-
     public String getNumero() {
         return numero;
     }
-
-//    public void setNumero(String numero) {
-//        this.numero = numero;
-//    }
 
     public String getNome() {
         return nome;
@@ -49,10 +36,6 @@ public class Cliente {
         return rua;
     }
 
-//    public void setRua(String rua) {
-//        this.rua = rua;
-//    }
-    
     public Cliente(String email,String numero,String nome,String rua,String CPF){
         this.email = email;
         this.numero = numero;
@@ -61,7 +44,7 @@ public class Cliente {
         this.CPF = CPF;
     }
     public boolean isValidNumber(String numero){
-        if(numero.charAt(0)=='0'){
+        /*if(numero.charAt(0)=='0'){
             if(numero.length()!=12){
                 return false;
             }
@@ -69,7 +52,15 @@ public class Cliente {
         if(numero.length()!=11){
             return false;
         }
-        return true;
+        return true;*/
+    
+        if(numero.length()== 11 || numero.length() == 12){
+            String numeroRegex = "^([0-9]{2,3})+[0-9]{5}+-[0-9]{4}$";
+            Pattern pattern = Pattern.compile(numeroRegex);
+            Matcher matcher = pattern.matcher(numero);
+            return matcher.matches();
+        }
+        return false;
     }
     public void setNumero(String numero) throws NumeroException{
         if(!isValidNumber(numero)){
@@ -78,10 +69,13 @@ public class Cliente {
         this.numero = numero;
     }
     public boolean isValidCPF(String CPF){
-        if(CPF.length()!=11){
-            return false;
+        if(CPF.length()==11){
+            String CPFRegex = "^[0-9]{3}\\.+[0-9]{3}\\.+[0-9]{3}\\.[0-9]{2}";
+            Pattern pattern = Pattern.compile(CPFRegex);
+            Matcher matcher = pattern.matcher(CPF);
+            return matcher.matches();
         }
-        return true;
+        return false;
     }
     public void setCPF(String CPF) throws CPFException{
        if(!isValidCPF(CPF)){
@@ -96,15 +90,15 @@ public class Cliente {
         this.rua = rua;
     }
     public boolean isValidRua(String rua){
-        String RuaCerta = "^[a-zA-Z]+,[0-9]+$";
-        Pattern pattern = PatternLayout.compile(RuaCerta);
+        String ruaRegex = "^[a-zA-Z]+,[0-9]+$";
+        Pattern pattern = Pattern.compile(ruaRegex);
         Matcher matcher = pattern.matcher(rua);
         return matcher.matches(); 
     }
 
     private boolean isValidEmail(String email) {
-        String emailCerto = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-        Pattern pattern = Pattern.compile(emailCerto);
+        String emailRegex= "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        Pattern pattern = Pattern.compile(emailRegex);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
