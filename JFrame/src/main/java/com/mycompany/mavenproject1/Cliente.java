@@ -11,6 +11,7 @@ public class Cliente {
     public String nome;
     public String rua;
     private String CPF; 
+    private String senha;
 
     public String getCPF() {
         return CPF;
@@ -36,12 +37,17 @@ public class Cliente {
         return rua;
     }
 
+//    public void setRua(String rua) {
+//        this.rua = rua;
+//    }
+    
     public Cliente(String email,String numero,String nome,String rua,String CPF){
         this.email = email;
         this.numero = numero;
         this.nome = nome;
         this.rua = rua;
         this.CPF = CPF;
+        this.senha = senha;
     }
     public boolean isValidNumber(String numero){
         /*if(numero.charAt(0)=='0'){
