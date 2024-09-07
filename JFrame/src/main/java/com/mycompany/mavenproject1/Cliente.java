@@ -73,7 +73,7 @@ public class Cliente {
             String CPFRegex = "^[0-9]{3}\\.+[0-9]{3}\\.+[0-9]{3}\\.[0-9]{2}";
             Pattern pattern = Pattern.compile(CPFRegex);
             Matcher matcher = pattern.matcher(CPF);
-            return matcher.matches();
+            if(matcher.matches());
         }
         return false;
     }
@@ -90,7 +90,7 @@ public class Cliente {
         this.rua = rua;
     }
     public boolean isValidRua(String rua){
-        String ruaRegex = "^[a-zA-Z]+,[0-9]+$";
+        String ruaRegex = "^[a-zA-Z]+,[0-9]$";
         Pattern pattern = Pattern.compile(ruaRegex);
         Matcher matcher = pattern.matcher(rua);
         return matcher.matches(); 
