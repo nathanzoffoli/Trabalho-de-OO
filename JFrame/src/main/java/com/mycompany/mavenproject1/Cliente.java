@@ -41,7 +41,7 @@ public class Cliente {
 //        this.rua = rua;
 //    }
     
-    public Cliente(String email,String numero,String nome,String rua,String CPF){
+    public Cliente(String email,String numero,String nome,String rua,String CPF,String senha){
         this.email = email;
         this.numero = numero;
         this.nome = nome;

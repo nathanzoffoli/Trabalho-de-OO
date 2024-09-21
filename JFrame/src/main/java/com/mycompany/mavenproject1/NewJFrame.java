@@ -4,6 +4,8 @@
  */
 package com.mycompany.mavenproject1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Silvânia
@@ -578,44 +580,62 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        senha = jTextField10.getText();        // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_jTextField10ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        jTabbedPane1.setSelectedIndex(0);
+        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Cliente cliente = new Cliente(email,numero,nome,rua,cpf,senha);
+        
+        try{
+            
+            
+            Cliente cliente = new Cliente(jTextField5.getText(),jTextField6.getText(),jTextField3.getText(),jTextField8.getText(),jTextField4.getText(),jTextField10.getText());
+            
+        }catch (CPFException e) {
+            JOptionPane.showMessageDialog(null, "CPF invalido!",
+                    "CPF invalido!", JOptionPane.ERROR_MESSAGE);
+        }catch (NumeroException e) {
+            JOptionPane.showMessageDialog(null, "Numero invalido!",
+                    "Numero ivalido!", JOptionPane.ERROR_MESSAGE);
+        }catch (EmailException e) {
+            JOptionPane.showMessageDialog(null, "Email invalido!",
+                    "Email invalido!", JOptionPane.ERROR_MESSAGE);
+        }catch (RuaException e) {
+            JOptionPane.showMessageDialog(null, "Rua invalida!",
+                    "Rua invalida!", JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        adicional = jTextField9.getText();        // TODO add your handling code here:
+              // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        rua = jTextField8.getText();        // TODO add your handling code here:
+             // TODO add your handling code here:
     }//GEN-LAST:event_jTextField8ActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        cep = jTextField7.getText();        // TODO add your handling code here:
+              // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        numero = jTextField6.getText();        // TODO add your handling code here:
+            // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        email = jTextField5.getText();        // TODO add your handling code here:
+              // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        cpf = jTextField4.getText();        // TODO add your handling code here:
+          // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        nome = jTextField3.getText();
+       
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
