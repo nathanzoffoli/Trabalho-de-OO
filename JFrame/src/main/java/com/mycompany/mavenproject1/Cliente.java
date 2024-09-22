@@ -76,12 +76,60 @@ public class Cliente {
     }
     public boolean isValidCPF(String CPF){
         if(CPF.length()==11){
-            String CPFRegex = "^[0-9]{3}\\.+[0-9]{3}\\.+[0-9]{3}\\.[0-9]{2}";
+            String CPFRegex = "^[0-9]{3}\\.+[0-9]{3}\\.+[0-9]{3}\\-[0-9]{2}";
             Pattern pattern = Pattern.compile(CPFRegex);
             Matcher matcher = pattern.matcher(CPF);
-            if(matcher.matches());
+            if(matcher.matches()){
+                verificaCPF(CPF);
+            }
         }
         return false;
+    }
+    public boolean verificaCPF(String CPF){
+        String sem = CPF.replaceAll("[^0-9]", "");
+        int tam = 11;
+        int[] vetor = new int[tam];
+        int numero;
+        int mult = 10;
+        int soma = 0;
+        int dig1;
+        char[] ch = sem.toCharArray();
+        for(int i = 0; i < ch.length; i++){
+             vetor[i] = ch[i] - '0';
+        }
+        for(int i = 0; i < 9; i++){
+            soma+= mult*vetor[i];
+            mult--;
+        }
+        int resto = soma%11;
+        if(resto<2){
+            dig1 = 0;
+        }
+        else{
+            dig1 = 11-resto;
+        }
+        if(dig1 != vetor[9]){
+            return false;
+        }
+        mult = 11;
+        soma =0;
+        for(int i = 0; i < 10; i++){
+            soma+= mult*vetor[i];
+            mult--;
+        }
+        resto = soma%11;
+        int dig2;
+        if(resto <2){
+            dig2 = 0;
+        }
+        else{
+            dig2 = 11-resto;
+        }
+        if(dig2 != vetor[10]){
+            return false;
+        }
+        return true;
+
     }
     public void setCPF(String CPF) throws CPFException{
        if(!isValidCPF(CPF)){
