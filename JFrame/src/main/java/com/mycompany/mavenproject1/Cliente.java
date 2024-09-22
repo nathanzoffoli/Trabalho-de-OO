@@ -76,7 +76,7 @@ public class Cliente {
     }
     public boolean isValidCPF(String CPF){
         if(CPF.length()==11){
-            String CPFRegex = "^[0-9]{3}\\.+[0-9]{3}\\.+[0-9]{3}\\-[0-9]{2}";
+            String CPFRegex = "^[0-9]{3}\\.+[0-9]{3}\\.+[0-9]{3}+-[0-9]{2}";
             Pattern pattern = Pattern.compile(CPFRegex);
             Matcher matcher = pattern.matcher(CPF);
             if(matcher.matches()){
