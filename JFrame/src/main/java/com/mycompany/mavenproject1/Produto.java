@@ -38,10 +38,11 @@ public class Produto {
         this.valor = valor;
     }
 
-    Produto PizzaCalabresaPequena = new Produto("Calabresa", 30, "Molho de tomate, mussarela, calabresa, oregano e azeitona", "Pequena");
-    Produto PizzaCalabresaGrande = new Produto("Calabresa", 40, "Molho de tomate, mussarela, calabresa, oregano e azeitona", "Grande");
-    Produto PizzaPortuguesaPequena = new Produto("Portuguesa", 30, "Molho de tomate, mussarela, preseunto, cebola, tomate, ovo cozido, oregano e azeitona", "Pequena");
-    Produto PizzaPortuguesaGrande = new Produto("Portuguesa", 40, "Molho de tomate, mussarela, preseunto, cebola, tomate, ovo cozido, oregano e azeitona", "Grande");
-    Produto PizzaMussarelaPequena = new Produto("Mussarela", 30, "Molho de tomate, mussarela, tomate, oregano e azeitona", "Pequena");
-    Produto PizzaMussarelaGrande = new Produto("Mussarela", 40, "Molho de tomate, mussarela, tomate, oregano e azeitona", "Grande");
+    public Produto(String nome, int valor, String tamanho) {
+        this.nome = nome;
+        this.valor = valor;
+        this.tamanho = tamanho;
+    }
+
+    
 }

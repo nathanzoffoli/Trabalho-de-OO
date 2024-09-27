@@ -12,6 +12,23 @@ public class Cliente {
     public String rua;
     private String CPF; 
     private String senha;
+    private String adicional;
+
+    public void setAdicional(String adicional) {
+        this.adicional = adicional;
+    }
+
+    public String getAdicional() {
+        return adicional;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
     public String getCPF() {
         return CPF;
@@ -41,12 +58,12 @@ public class Cliente {
 //        this.rua = rua;
 //    }
     
-    public Cliente(String email,String numero,String nome,String rua,String CPF,String senha){
-        this.email = email;
-        this.numero = numero;
+    public Cliente(String email,String numero,String nome,String rua,String CPF,String senha)throws EmailException, NumeroException, CPFException, RuaException {
+        setEmail(email);
+        setNumero(numero);
         this.nome = nome;
-        this.rua = rua;
-        this.CPF = CPF;
+        setRua(rua);
+        setCPF(CPF);
         this.senha = senha;
     }
     public boolean isValidNumber(String numero){
