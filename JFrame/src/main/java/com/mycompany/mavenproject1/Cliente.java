@@ -13,6 +13,11 @@ public class Cliente {
     private String CPF; 
     private String senha;
     private String adicional;
+    public String CEP;
+
+    public String getCEP() {
+        return CEP;
+    }
 
     public void setAdicional(String adicional) {
         this.adicional = adicional;
@@ -66,19 +71,26 @@ public class Cliente {
         setCPF(CPF);
         this.senha = senha;
     }
+    public boolean isValidCEP(String CEP){
+        if(CEP.length() == 9){
+            String CEPRegex = "^[0-9]{5}-[0-9]{3}$";
+            Pattern pattern = Pattern.compile(CEPRegex);
+            Matcher matcher = pattern.matcher(CEP);
+            return matcher.matches();
+        }
+        return false;
+    }
+    public void setCEP(String CEP) throws CEPException {
+        if(!isValidCEP(CEP)){
+            throw new CEPException();
+        }
+        this.CEP = CEP;
+    }
     public boolean isValidNumber(String numero){
-        /*if(numero.charAt(0)=='0'){
-            if(numero.length()!=12){
-                return false;
-            }
-        }
-        if(numero.length()!=11){
-            return false;
-        }
-        return true;*/
-    
-        if(numero.length()== 11 || numero.length() == 12){
-            String numeroRegex = "^([0-9]{2,3})+[0-9]{5}+-[0-9]{4}$";
+
+        if(numero.length()== 15 || numero.length() == 14){
+            String numeroRegex = "^\\([0-9]{2,3}\\)[0-9]{5}-[0-9]{4}$";
+            //String numeroRegex = "^^\\(?[0-9]{2,3}\\)?[0-9]{5}-[0-9]{4}$";
             Pattern pattern = Pattern.compile(numeroRegex);
             Matcher matcher = pattern.matcher(numero);
             return matcher.matches();
@@ -92,13 +104,14 @@ public class Cliente {
         this.numero = numero;
     }
     public boolean isValidCPF(String CPF){
-        if(CPF.length()==11){
-            String CPFRegex = "^[0-9]{3}\\.+[0-9]{3}\\.+[0-9]{3}+-[0-9]{2}";
+        if(CPF.length()==14){
+            String CPFRegex = "^[0-9]{3}+\\.[0-9]{3}+\\.[0-9]{3}+-[0-9]{2}";
             Pattern pattern = Pattern.compile(CPFRegex);
             Matcher matcher = pattern.matcher(CPF);
             if(matcher.matches()){
                 verificaCPF(CPF);
             }
+            return matcher.matches();
         }
         return false;
     }
@@ -161,7 +174,8 @@ public class Cliente {
         this.rua = rua;
     }
     public boolean isValidRua(String rua){
-        String ruaRegex = "^[a-zA-Z]+,[0-9]$";
+        String ruaSem = rua.replaceAll(" ", "");
+        String ruaRegex = "^[a-zA-Z\\s]+,\\s*[0-9]{1,}$";
         Pattern pattern = Pattern.compile(ruaRegex);
         Matcher matcher = pattern.matcher(rua);
         return matcher.matches(); 
