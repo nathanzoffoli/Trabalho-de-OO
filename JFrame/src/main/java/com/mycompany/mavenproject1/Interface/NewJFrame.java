@@ -662,7 +662,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         try {
 
-            Cliente cliente = new Cliente(jTextField5.getText(), jTextField6.getText(), jTextField3.getText(), jTextField8.getText(), jTextField4.getText(), jTextField10.getText().jTextField7.getText());
+            Cliente cliente = new Cliente(jTextField5.getText(), jTextField6.getText(), jTextField3.getText(), jTextField8.getText(), jTextField4.getText(), jTextField10.getText(),jTextField7.getText());
             cliente.setAdicional(jTextField9.getText());
             clientes.add(cliente);
                jTabbedPane1.setSelectedIndex(5);
