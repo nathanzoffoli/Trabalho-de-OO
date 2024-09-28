@@ -15,6 +15,7 @@ import com.mycompany.mavenproject1.Exception.CPFException;
 import com.mycompany.mavenproject1.Exception.EmailException;
 import com.mycompany.mavenproject1.Exception.NumeroException;
 import com.mycompany.mavenproject1.Exception.RuaException;
+import com.mycompany.mavenproject1.Exception.CEPException;
 
 /**
  *
@@ -661,9 +662,11 @@ public class NewJFrame extends javax.swing.JFrame {
 
         try {
 
-            Cliente cliente = new Cliente(jTextField5.getText(), jTextField6.getText(), jTextField3.getText(), jTextField8.getText(), jTextField4.getText(), jTextField10.getText());
+            Cliente cliente = new Cliente(jTextField5.getText(), jTextField6.getText(), jTextField3.getText(), jTextField8.getText(), jTextField4.getText(), jTextField10.getText().jTextField7.getText());
             cliente.setAdicional(jTextField9.getText());
             clientes.add(cliente);
+               jTabbedPane1.setSelectedIndex(5);
+            
 
         } catch (CPFException e) {
             JOptionPane.showMessageDialog(null, "CPF invalido!",
@@ -677,6 +680,9 @@ public class NewJFrame extends javax.swing.JFrame {
         } catch (RuaException e) {
             JOptionPane.showMessageDialog(null, "Rua invalida!",
                 "Rua invalida!", JOptionPane.ERROR_MESSAGE);
+        }catch (CEPException e) {
+            JOptionPane.showMessageDialog(null, "CEP invalido!",
+                "CEP invalido!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
