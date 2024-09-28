@@ -69,13 +69,14 @@ public class Cliente {
 //        this.rua = rua;
 //    }
     
-    public Cliente(String email,String numero,String nome,String rua,String CPF,String senha)throws EmailException, NumeroException, CPFException, RuaException {
+    public Cliente(String email,String numero,String nome,String rua,String CPF,String senha, String cep)throws EmailException, NumeroException, CPFException, RuaException ,CEPException {
         setEmail(email);
         setNumero(numero);
         this.nome = nome;
         setRua(rua);
         setCPF(CPF);
         this.senha = senha;
+        setCEP(cep);
     }
     public boolean isValidCEP(String CEP){
         if(CEP.length() == 9){
