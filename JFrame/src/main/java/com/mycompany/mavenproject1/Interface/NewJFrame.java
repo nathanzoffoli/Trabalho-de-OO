@@ -572,7 +572,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         jPanel8.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 427, -1, -1));
 
-        jButton13.setText("Comfirmar");
+        jButton13.setText("Confirmar");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
@@ -580,7 +580,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         jPanel8.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 427, -1, -1));
 
-        jTabbedPane1.addTab("cardapio", jPanel8);
+        jTabbedPane1.addTab("Cardapio", jPanel8);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
