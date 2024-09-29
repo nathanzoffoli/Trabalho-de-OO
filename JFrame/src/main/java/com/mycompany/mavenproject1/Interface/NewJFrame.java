@@ -33,6 +33,7 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() {
         initComponents();
         loadCardapio();
+        loadPedidos();
     }
     
     public void loadCardapio(){
@@ -887,7 +888,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
-    private String nome, numero, email, rua, cpf, cep, adicional, senha;
+
     private Cliente clienteAtual;
     private ArrayList<Cliente> clientes = new ArrayList<>();
     private ArrayList<Pedido> pedidos = new ArrayList<>();
