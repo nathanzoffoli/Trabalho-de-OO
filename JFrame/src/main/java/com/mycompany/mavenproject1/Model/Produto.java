@@ -1,3 +1,4 @@
+//Autores:Luana Lauschner Avilez Vilarinho (202265062AC),Nathan Ferreira da Silva Zoffoli (201865191AC)
 package com.mycompany.mavenproject1.Model;
 
 public abstract class Produto {
