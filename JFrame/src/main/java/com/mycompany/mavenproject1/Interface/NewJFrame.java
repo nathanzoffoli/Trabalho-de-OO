@@ -8,8 +8,11 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+import com.mycompany.mavenproject1.Model.Calabresa;
 import com.mycompany.mavenproject1.Model.Cliente;
+import com.mycompany.mavenproject1.Model.Mussarela;
 import com.mycompany.mavenproject1.Model.Pedido;
+import com.mycompany.mavenproject1.Model.Portuguesa;
 import com.mycompany.mavenproject1.Model.Produto;
 import com.mycompany.mavenproject1.Exception.CPFException;
 import com.mycompany.mavenproject1.Exception.EmailException;
@@ -861,10 +864,18 @@ public class NewJFrame extends javax.swing.JFrame {
     private Cliente clienteAtual;
     private ArrayList<Cliente> clientes = new ArrayList<>();
     private ArrayList<Pedido> pedidos = new ArrayList<>();
-    private Produto PizzaCalabresaPequena = new Produto("Calabresa", 30, "Molho de tomate, mussarela, calabresa, oregano e azeitona", "Pequena");
+    /*private Produto PizzaCalabresaPequena = new Produto("Calabresa", 30, "Molho de tomate, mussarela, calabresa, oregano e azeitona", "Pequena");
     private Produto PizzaCalabresaGrande = new Produto("Calabresa", 40, "Molho de tomate, mussarela, calabresa, oregano e azeitona", "Grande");
     private Produto PizzaPortuguesaPequena = new Produto("Portuguesa", 30, "Molho de tomate, mussarela, preseunto, cebola, tomate, ovo cozido, oregano e azeitona", "Pequena");
     private Produto PizzaPortuguesaGrande = new Produto("Portuguesa", 40, "Molho de tomate, mussarela, preseunto, cebola, tomate, ovo cozido, oregano e azeitona", "Grande");
     private Produto PizzaMussarelaPequena = new Produto("Mussarela", 30, "Molho de tomate, mussarela, tomate, oregano e azeitona", "Pequena");
-    private Produto PizzaMussarelaGrande = new Produto("Mussarela", 40, "Molho de tomate, mussarela, tomate, oregano e azeitona", "Grande");
+    private Produto PizzaMussarelaGrande = new Produto("Mussarela", 40, "Molho de tomate, mussarela, tomate, oregano e azeitona", "Grande");*/
+
+    private Calabresa PizzaCalabresaGrande = new Calabresa(40);
+    private Calabresa PizzaCalabresaPequena = new Calabresa(30);
+    private Mussarela PizzaMussarelaGrande = new Mussarela(40);
+    private Mussarela PizzaMussarelaPequena = new Mussarela(30);
+    private Portuguesa PizzaPortuguesaGrande = new Portuguesa(40);
+    private Portuguesa PizzaPortuguesaPequena = new Portuguesa(30);
+
 }
