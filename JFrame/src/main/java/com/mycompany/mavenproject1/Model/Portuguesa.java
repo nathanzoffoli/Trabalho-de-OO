@@ -1,19 +1,19 @@
 package com.mycompany.mavenproject1.Model;
 
 public class Portuguesa extends Produto{
-    public Portuguesa(String nome, int valor, String ingredientes, String tamanho){
-        super(nome, valor, ingredientes, tamanho);
+    public Portuguesa(int valor){
+        super(valor);
     }
 
     @Override
-    public void setIngredientes(String ingredientes) {
-        this.ingredientes = "Molho de tomate, mussarela, preseunto, cebola, tomate, ovo cozido, oregano e azeitona";
+    public String setIngredientes(String ingredientes) {
+        return this.ingredientes = "Molho de tomate, mussarela, preseunto, cebola, tomate, ovo cozido, oregano e azeitona";
         
     }
 
     @Override
-    public void setNome(String nome) {
-        this.nome = "Portuguesa";
+    public String setNome(String nome) {
+        return this.nome = "Portuguesa";
         
     }
 }

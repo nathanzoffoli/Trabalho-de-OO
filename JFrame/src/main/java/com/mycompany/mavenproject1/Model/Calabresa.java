@@ -1,8 +1,8 @@
 package com.mycompany.mavenproject1.Model;
 
 public class Calabresa extends Produto{
-    public Calabresa(String nome, int valor, String ingredientes, String tamanho){
-        super(nome, valor, ingredientes, tamanho);
+    public Calabresa(int valor){
+        super(valor);
     }
 
     @Override
