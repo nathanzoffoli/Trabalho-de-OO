@@ -1,15 +1,15 @@
 package com.mycompany.mavenproject1.Model;
 
-public class Produto {
+public abstract class Produto {
     public String nome;
     public int valor;
     public String ingredientes;
     public String tamanho;
 
-    public Produto(String nome, int valor, String ingredientes, String tamanho){
-        this.ingredientes = ingredientes;
-        this.nome = nome;
-        this.tamanho = tamanho;
+    public Produto(int valor){
+        this.ingredientes = setIngredientes(ingredientes);;
+        this.nome = setNome(nome);
+        this.tamanho = setTamanho(valor);
         this.valor = valor;
     }
 
@@ -25,15 +25,25 @@ public class Produto {
     public int getValor() {
         return valor;
     }
-    public void setIngredientes(String ingredientes) {
+    /*public void setIngredientes(String ingredientes) {
         this.ingredientes = ingredientes;
     }
     public void setNome(String nome) {
         this.nome = nome;
+    }*/
+    
+    public String setTamanho(int valor) {
+        if(valor == 30){
+            return this.tamanho = "Pequena";
+        }
+        else{
+            return this.tamanho = "Grande";
+        }
     }
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
-    }
+ 
+    public abstract String setNome(String nome);
+    public abstract String setIngredientes(String ingrediente);
+    
     public void setValor(int valor) {
         this.valor = valor;
     }
@@ -43,6 +53,9 @@ public class Produto {
         this.valor = valor;
         this.tamanho = tamanho;
     }
-
     
+    @Override
+    public String toString(){
+        return "Pizza de " + getNome() + "Tamanho: " + getTamanho() + "Valor " + getValor() + "Ingredientes: " +getIngredientes();
+    }
 }

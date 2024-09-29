@@ -6,14 +6,14 @@ public class Calabresa extends Produto{
     }
 
     @Override
-    public void setIngredientes(String ingredientes) {
-        this.ingredientes = "Molho de tomate, mussarela, calabresa, oregano e azeitona";
+    public String setIngredientes(String ingredientes) {
+        return this.ingredientes = "Molho de tomate, mussarela, calabresa, oregano e azeitona";
         
     }
 
     @Override
-    public void setNome(String nome) {
-       this.nome = "Calabresa";
+    public String setNome(String nome) {
+       return this.nome = "Calabresa";
         
     }
 }
