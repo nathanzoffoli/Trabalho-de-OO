@@ -7,8 +7,8 @@ public abstract class Produto {
     public String tamanho;
 
     public Produto(int valor){
-        this.ingredientes = setIngredientes(ingredientes);;
-        this.nome = setNome(nome);
+        this.ingredientes = setIngredientes();
+        this.nome = setNome();
         this.tamanho = setTamanho(valor);
         this.valor = valor;
     }
@@ -41,8 +41,8 @@ public abstract class Produto {
         }
     }
  
-    public abstract String setNome(String nome);
-    public abstract String setIngredientes(String ingrediente);
+    public abstract String setNome();
+    public abstract String setIngredientes();
     
     public void setValor(int valor) {
         this.valor = valor;
