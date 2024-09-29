@@ -405,7 +405,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("login 2", jPanel4);
 
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -428,15 +428,34 @@ public class NewJFrame extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 190, -1));
-
         jButton14.setText("Ver");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton14ActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jButton14))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(jButton14))
+        );
+
+        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 397, 457));
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -461,25 +480,7 @@ public class NewJFrame extends javax.swing.JFrame {
             jTable4.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 104, Short.MAX_VALUE))
-        );
+        jPanel5.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 30, -1, -1));
 
         jTabbedPane1.addTab("funcionario", jPanel5);
 
@@ -603,14 +604,39 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
         int row = model.getRowCount();
-        ArrayList<Produto> lista = new ArrayList<>();
+        ArrayList lista = new ArrayList<>();
         for(int i=0;i<row;i++){
-            Produto aux = new Produto(model.getValueAt(i,0).toString(),Integer.valueOf(model.getValueAt(i,1).toString()),model.getValueAt(i,2).toString());
-            lista.add(aux);
+            if(model.getValueAt(i,0).toString().equals("Calabresa")){
+                if(model.getValueAt(i,1).toString().equals("Pequena")){
+                    Calabresa aux = new Calabresa(30);
+                     lista.add(aux);
+                }else{
+                    Calabresa aux = new Calabresa(40);
+                     lista.add(aux);
+                }
+            }else if(model.getValueAt(i,0).toString().equals("Mussarela")){
+                if(model.getValueAt(i,1).toString().equals("Pequena")){
+                    Mussarela aux = new Mussarela(30);
+                     lista.add(aux);
+                }else{
+                    Mussarela aux = new Mussarela(40);
+                     lista.add(aux);
+                }
+            }else{
+                if(model.getValueAt(i,1).toString().equals("Pequena")){
+                    Portuguesa aux = new Portuguesa(30);
+                     lista.add(aux);
+                }else{
+                    Portuguesa aux = new Portuguesa(40);
+                     lista.add(aux);
+                }
+            }
+           
         }
 
         Pedido pedido = new Pedido(lista,clienteAtual);
         pedidos.add(pedido);
+      
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
